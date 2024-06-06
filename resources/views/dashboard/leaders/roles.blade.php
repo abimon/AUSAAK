@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="card-text">
-                        <?php echo html_entity_decode($role->description); ?>
+                        <?php echo html_entity_decode(mb_substr($role->description,0,300)); ?>
                     </div>
                 </div>
             </div>

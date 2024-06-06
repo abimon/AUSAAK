@@ -13,7 +13,7 @@
                     {{$leader->role->title}}
                     </h6>
                     <div class="card-text">
-                        <?php echo html_entity_decode($leader->role->description); ?>
+                        <?php echo html_entity_decode(mb_substr($leader->role->description,0,300)); ?>
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-between">
