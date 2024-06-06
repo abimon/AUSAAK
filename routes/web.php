@@ -12,6 +12,7 @@ use App\Http\Controllers\AKReportController;
 use App\Http\Controllers\AKRoleController;
 use App\Http\Controllers\AKTransactionController;
 use App\Http\Controllers\ArticleReactionController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissionApplicationController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\MissionFileController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\MissionRegistrationController;
 use App\Http\Controllers\MissionSitesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\RegUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -59,12 +61,10 @@ Route::middleware('auth')->group(function () {
         'ticket'=>TicketController::class,
 
     ]);
-    Route::get('/dashboard', function () {
-        if (Auth()->user()->chapter == null) {
-            return view('step-two');
-        }
-        return view('dashboard.index');
+    Route::get('/step-two', function () {
+        return view('step-two');
     });
+    Route::get('/dashboard', [HomeController::class,'dashboard'])->middleware(RegUser::class);
 });
 Route::resources([
     'm_application'=>MissionApplicationController::class,
