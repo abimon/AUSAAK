@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
 </div>
-
+@if($account != null)
 <!-- Content Row -->
 <div class="row">
 
@@ -83,6 +83,7 @@
         </div>
     </div>
 </div>
+@endif
 <div class="container">
     <div class="card text-gray-800 col-md-6" >
         <div class="card-body">
