@@ -24,7 +24,7 @@
                         <div class="modal-body">
                             <div class="m-3 card p-3 border-dark bg-transparent" style="border-style:dashed;">
                                 <img id="out" src="{{asset('storage/avatar/'.Auth()->user()->avatar)}}" style="width: 100%; object-fit:contain;" />
-                                <input type="file" accept="image/jpeg, image/png, image/webp" name="passport" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
+                                <input type="file" accept="image/jpeg, image/png, image/webp" name="avatar" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
                                 <div class="pt-2" id="desc">
                                     <div class="text-center" style="font-size: xxx-large; font-weight:bolder;">
                                         <i class="bi bi-upload"></i>
