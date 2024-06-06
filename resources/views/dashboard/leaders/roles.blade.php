@@ -22,7 +22,7 @@
                             <label for="location" class="text-capitalize">Role</label>
                         </div>
                         <label for="">Description</label>
-                        <textarea name="description" id="editor1" class="form-control"></textarea>
+                        <textarea name="description" id="editor30" class="form-control"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
