@@ -83,7 +83,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="card text-gray-800" style="width: 18rem;">
+    <div class="card text-gray-800 col-md-6" >
         <div class="card-body">
             <h5 class="card-title fw-bold">My place in AUSAA Kenya</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">{{Auth()->user()->role}}</h6>
