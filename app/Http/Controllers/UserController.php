@@ -26,9 +26,9 @@ class UserController extends Controller
         //
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        return view("dashboard.user.profile");
     }
 
     public function update($id)

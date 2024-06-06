@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Profile'])
+@extends('layouts.dash',['title'=>'Profile'])
 @section('dashboard')
 <div class="row">
     <div class="col-md-5 p-3">
@@ -23,7 +23,7 @@
                         @method('PUT')
                         <div class="modal-body">
                             <div class="m-3 card p-3 border-dark bg-transparent" style="border-style:dashed;">
-                                <img id="out" src="{{asset('storage/users/passports/'.Auth()->user()->pp_path)}}" style="width: 100%; object-fit:contain;" />
+                                <img id="out" src="{{asset('storage/avatar/'.Auth()->user()->avatar)}}" style="width: 100%; object-fit:contain;" />
                                 <input type="file" accept="image/jpeg, image/png, image/webp" name="passport" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
                                 <div class="pt-2" id="desc">
                                     <div class="text-center" style="font-size: xxx-large; font-weight:bolder;">
@@ -58,16 +58,16 @@
             @csrf
             @method('PUT')
             <div class="row mb-2">
-                <label for="" class="col-4">Surname</label>
-                <input type="text" class="col-8 form-control" name="sname" value="{{Auth()->user()->sname}}">
-            </div>
-            <div class="row mb-2">
                 <label for="" class="col-4">First Name</label>
                 <input type="text" class="col-8 form-control" name="fname" value="{{Auth()->user()->fname}}">
             </div>
             <div class="row mb-2">
                 <label for="" class="col-4">Middle Name</label>
                 <input type="text" class="col-8 form-control" name="mname" value="{{Auth()->user()->mname}}">
+            </div>
+            <div class="row mb-2">
+                <label for="" class="col-4">Last Name</label>
+                <input type="text" class="col-8 form-control" name="lname" value="{{Auth()->user()->lname}}">
             </div>
             <div class="row mb-2">
                 <label for="" class="col-4">Email</label>
@@ -79,20 +79,12 @@
                 <input type="text" class="col-8 form-control" name="contact" value="{{Auth()->user()->contact}}">
             </div>
             <div class="row mb-2">
-                <label for="" class="col-4">ID Number</label>
-                <input type="text" class="col-8 form-control" name="idNumber" value="{{Auth()->user()->idNumber}}">
-            </div>
-            <div class="row mb-2">
-                <label for="" class="col-4">KRA PIN</label>
-                <input type="text" class="col-8 form-control" name="krapin" value="{{Auth()->user()->krapin}}">
-            </div>
-            <div class="row mb-2">
-                <label for="" class="col-4">Address</label>
-                <input type="text" class="col-8 form-control" disabled value="{{Auth()->user()->address}}">
+                <label for="" class="col-4">Region</label>
+                <input type="text" class="col-8 form-control" name="chapter" value="{{Auth()->user()->chapter}}">
             </div>
             <div class="row mb-2">
                 <label for="" class="col-4">Residence</label>
-                <input type="text" class="col-8 form-control" disabled value="{{Auth()->user()->residence}}">
+                <input type="text" class="col-8 form-control" name="current_residence" value="{{Auth()->user()->current_residence}}">
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-outline-success">Update</button>
