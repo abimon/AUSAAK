@@ -86,4 +86,5 @@
         </div>
     </div>
 </div>
+<script src="{{asset('storage/dash/js/ckeditor.js')}}"></script>
 @endforeach

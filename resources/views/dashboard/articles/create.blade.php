@@ -1,5 +1,6 @@
 @extends('layouts.dash',['title'=>'Create Article'])
 @section('dashboard')
+
 <div class="container">
     <form method="post" action="{{route('article.store')}}" class="row">
         @csrf
@@ -44,4 +45,5 @@
         </div>
     </form>
 </div>
+<script src="{{asset('storage/dash/js/ckeditor.js')}}"></script>
 @endsection
