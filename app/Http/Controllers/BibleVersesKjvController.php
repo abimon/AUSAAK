@@ -19,7 +19,9 @@ class BibleVersesKjvController extends Controller
             $chapters = [];
             for ($j = 1; $j <= 150; $j++) {
                 $verses = BibleVersesKjv::where([['book', $i],['chapter',$j]])->select('verse','text')->get();
-                array_push($chapters, ['chapter'=>$j,'verses'=>$verses]);
+                if($verses->count()>0){
+                    array_push($chapters, ['chapter'=>$j,'verses'=>$verses]);
+                }
             }
             array_push($book, ['book' => $i, 'chapters' => $chapters]);
             array_push($books, $book); 
