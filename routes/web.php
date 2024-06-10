@@ -12,6 +12,7 @@ use App\Http\Controllers\AKReportController;
 use App\Http\Controllers\AKRoleController;
 use App\Http\Controllers\AKTransactionController;
 use App\Http\Controllers\ArticleReactionController;
+use App\Http\Controllers\BibleVersesKjvController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissionApplicationController;
 use App\Http\Controllers\MissionController;
@@ -68,4 +69,5 @@ Route::middleware('auth')->group(function () {
 });
 Route::resources([
     'm_application'=>MissionApplicationController::class,
+    'bible'=>BibleVersesKjvController::class,
 ]);
