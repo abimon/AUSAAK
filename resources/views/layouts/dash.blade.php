@@ -524,7 +524,7 @@
     <script src="{{asset('storage/dash/js/sb-admin-2.min.js')}}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/super-build/ckeditor.js"></script>
     <script >
-        var i = 50;
+        var i = 20;
         for (j = 0; j < i; j++) {
             CKEDITOR.ClassicEditor
                 .create(document.getElementById("editor" + j), {
