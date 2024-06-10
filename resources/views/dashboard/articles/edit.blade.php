@@ -42,5 +42,6 @@
         </div>
     </form>
 </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/super-build/ckeditor.js"></script>
 <script src="{{asset('storage/dash/js/ckeditor.js')}}"></script>
 @endsection
