@@ -16,7 +16,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            {{$account->name}} Target</div>
+                            {{$account->name}} Target
+                        </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">Ksh {{$account->g_target}}</div>
                     </div>
                     <div class="col-auto">
@@ -65,7 +66,7 @@
         </div>
     </div>
     <!-- Pending Requests Card Example -->
-    @if ($last!= null)
+
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
@@ -73,8 +74,13 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Latest Contribution</div>
+                        @if ($last!= null)
                         <div class="h5 mb-0 font-weight-bold text-gray-800">Ksh {{$last->amount}}</div>
                         <small class="text-dark">{{$last->giver->lname}}</small>
+                        @else
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Ksh 0</div>
+                        <small class="text-dark"> </small>
+                        @endif
                     </div>
                     <div class="col-auto">
                         <i class="bi bi-cash-coin fa-2x text-gray-300"></i>
@@ -83,19 +89,18 @@
             </div>
         </div>
     </div>
-    @endif
 </div>
 @endif
 <div class="container">
-    <div class="card text-gray-800 col-md-6" >
+    <div class="card text-gray-800 col-md-6">
         <div class="card-body">
             <h5 class="card-title fw-bold">My place in AUSAA Kenya</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">{{Auth()->user()->role}}</h6>
             <div class="card-text">
                 <h6>My Responsibilities</h5>
-                @if (Auth()->user()->office != null)
-                <?php echo html_entity_decode(Auth()->user()->office->description); ?>
-                @endif
+                    @if (Auth()->user()->office != null)
+                    <?php echo html_entity_decode(Auth()->user()->office->description); ?>
+                    @endif
             </div>
         </div>
     </div>
