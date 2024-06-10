@@ -9,7 +9,7 @@
 <!-- Content Row -->
 <div class="row">
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!--Account Target Card  -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -65,6 +65,7 @@
         </div>
     </div>
     <!-- Pending Requests Card Example -->
+    @if ($last!= null)
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
@@ -82,6 +83,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 @endif
 <div class="container">

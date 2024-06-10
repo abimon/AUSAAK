@@ -354,7 +354,7 @@
                                     
                                 </a>
                                 @endforeach
-                                <a class="dropdown-item text-center small text-gray-500" href="/chat">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="{{route('chat.index')}}">Read More Messages</a>
                             </div>
                         </li>
 
@@ -523,7 +523,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{asset('storage/dash/js/sb-admin-2.min.js')}}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/super-build/ckeditor.js"></script>
-    <script>
+    <script >
         var i = 50;
         for (j = 0; j < i; j++) {
             CKEDITOR.ClassicEditor
