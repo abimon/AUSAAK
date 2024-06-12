@@ -36,6 +36,7 @@
         <div class="col-lg-4 col-md-6 p-2 post All {{$ticket->department}}">
             <div class="card {{$ticket->isSolved?'':($ticket->department=='Developer'?'bg-danger text-light':($ticket->department=='Communication'?'bg-warning text-light':'bg-primary text-light'))}} h-100">
                 <div class="card-body">
+                    @if(!($ticket->isSolved))
                     <div class="d-flex justify-content-end">
                         <form action="{{route('ticket.update',$ticket->id)}}" method="POST">
                             @csrf
@@ -45,9 +46,10 @@
                             </div>
                         </form>
                     </div>
+                    @endif
                     <h5 class="card-title text-uppercase fw-bolder">{{$ticket->subject}}</h5>
                         
-                    <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
+                    <h6 class="card-subtitle mb-2 {{$ticket->isSolved?($ticket->department=='Developer'?'text-danger':($ticket->department=='Communication'?'text-warning':'text-info')):'text-body-secondary'}} text-uppercase">
                         {{$ticket->department}}
                     </h6>
                     <div class="card-text">
