@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TicketController extends Controller
 {
@@ -12,7 +13,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::orderBy("created_at","desc")->paginate(10);
+        return view("dashboard.tickets.index", compact("tickets"));
     }
 
     /**
@@ -20,7 +22,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.tickets.create");
     }
 
     /**
@@ -28,15 +30,30 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ticket = strtoupper(uniqid());
+        Ticket::create([
+            'ticket_no'=>$ticket,
+            'email'=>request('email'),
+            'subject'=>request('subject'),
+            'department'=>request('department'),
+            'issue'=>request('issue'),
+            'isSolved'=>false
+        ]);
+        Mail::send('mails.ticket',
+        ['ticket'=>$ticket],
+        function ($message) use ($ticket) {
+            $message->to(request()->email)->subject($ticket.' Success');
+        });
+        return redirect()->route('ticket.index')->with('success','Your ticket ('.$ticket.') has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Ticket $ticket)
+    public function show($state)
     {
-        //
+        $ticket = Ticket::where('isSolved', $state)->paginate(10);
+        return view('dashboard.tickets.index', compact('ticket'));
     }
 
     /**

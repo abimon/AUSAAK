@@ -11,6 +11,7 @@ use App\Http\Controllers\AKReporistoryController;
 use App\Http\Controllers\AKReportController;
 use App\Http\Controllers\AKRoleController;
 use App\Http\Controllers\AKTransactionController;
+use App\Http\Controllers\AKUploadController;
 use App\Http\Controllers\ArticleReactionController;
 use App\Http\Controllers\BibleVersesKjvController;
 use App\Http\Controllers\HomeController;
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
         'article'=>AKArticleController::class,
         'event'=>AKEventController::class,
         'react'=>ArticleReactionController::class,
+        'upload'=>AKUploadController::class,
         // User
         'user' => UserController::class,
         // Leadership

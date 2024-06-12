@@ -44,7 +44,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            
+
             <hr class="sidebar-divider">
 
             <!-- Engineers Heading -->
@@ -184,10 +184,8 @@
                 </a>
                 <div id="uploads" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Discover Guides</a>
-                        <a class="collapse-item" href="">Ugunduzi</a>
-                        <a class="collapse-item" href="">Health</a>
-                        <a class="collapse-item" href="">Others</a>
+                        <a class="collapse-item" href="{{route('upload.index')}}">All Uploads</a>
+                        <a class="collapse-item" href="" data-bs-toggle="modal" data-bs-target="#upload">Upload</a>
                     </div>
                 </div>
             </li>
@@ -221,26 +219,24 @@
                 </a>
                 <div id="tickets" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Unhandles Tickets</a>
-                        <a class="collapse-item" href="">All Tickets</a>
-                        <a class="collapse-item" href="">Others</a>
+                        <a class="collapse-item" href="{{route('ticket.create')}}">Launch Ticket</a>
+                        <a class="collapse-item" href="{{route('ticket.index')}}">My Tickets</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#log" aria-expanded="true" aria-controls="log">
                     <i class="bi bi-code-slash"></i>
-                    <span>Logs</span>
+                    <span>Log</span>
                 </a>
                 <div id="log" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Error Logs</a>
-                        <a class="collapse-item" href="">Account Logs</a>
-                        <a class="collapse-item" href="">Others</a>
+                        <a class="collapse-item" href="{{route('ticket.show',0)}}">Unhandles Tickets</a>
+                        <a class="collapse-item" href="{{route('ticket.index')}}">All Tickets</a>
                     </div>
                 </div>
             </li>
-            
+
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -351,7 +347,7 @@
                                         <div class="text-truncate">{{mb_substr($message->message,0,50)}}...</div>
                                         <div class="small text-gray-500">{{$message->sender->sname}} {{$message->sender->fname}} · {{$message->created_at->diffForHumans()}}</div>
                                     </div>
-                                    
+
                                 </a>
                                 @endforeach
                                 <a class="dropdown-item text-center small text-gray-500" href="{{route('chat.index')}}">Read More Messages</a>
@@ -485,23 +481,55 @@
                             <label for="location" class="text-capitalize">Office</label>
                         </div>
                         <div class="form-floating">
-                        <select id="from" class="form-control" name="from" required>
-                            <?php $years = array_combine(range(date("Y"), 1990), range(date("Y"), 1990)); ?>
-                            @foreach($years as $year)
-                            <option value="{{$year-1}}" class="form-control">{{$year-1}}</option>
-                            @endforeach
-                        </select>
-                        <label for="">Service From</label>
+                            <select id="from" class="form-control" name="from" required>
+                                <?php $years = array_combine(range(date("Y"), 1990), range(date("Y"), 1990)); ?>
+                                @foreach($years as $year)
+                                <option value="{{$year-1}}" class="form-control">{{$year-1}}</option>
+                                @endforeach
+                            </select>
+                            <label for="">Service From</label>
                         </div>
                         <div class="form-floating">
-                        <select id="intake" class="form-control" name="to" required>
-                            <?php $years = array_combine(range(date("Y"), 1990), range(date("Y"), 1990)); ?>
-                            <option value="Now" class="form-control">Now</option>
-                            @foreach($years as $year)
-                            <option value="{{$year}}" class="form-control">{{$year}}</option>
-                            @endforeach
-                        </select>
-                        <label for="">Service To</label>
+                            <select id="intake" class="form-control" name="to" required>
+                                <?php $years = array_combine(range(date("Y"), 1990), range(date("Y"), 1990)); ?>
+                                <option value="Now" class="form-control">Now</option>
+                                @foreach($years as $year)
+                                <option value="{{$year}}" class="form-control">{{$year}}</option>
+                                @endforeach
+                            </select>
+                            <label for="">Service To</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="upload" tabindex="-1" aria-labelledby="roleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="roleLabel">Add Leader</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{route('upload.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-floating mb-2">
+                            <select name="category" id="" class="form-select">
+                                <?php $category = ['Ugunduzi', 'Discover Guide', 'Health', 'Others']; ?>
+                                @foreach ($category as $cat)
+                                <option value="{{$cat}}">{{$cat}}</option>
+                                @endforeach
+                            </select>
+                            <label for="location" class="text-capitalize">Category</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="file" name="files[]" id="" class="form-control" multiple>
+                            <label for="">Files</label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -523,7 +551,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{asset('storage/dash/js/sb-admin-2.min.js')}}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/super-build/ckeditor.js"></script>
-    <script >
+    <script>
         var i = 20;
         for (j = 0; j < i; j++) {
             CKEDITOR.ClassicEditor
