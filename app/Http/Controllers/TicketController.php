@@ -13,7 +13,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::orderBy("created_at","desc")->paginate(10);
+        $tickets = Ticket::orderBy("created_at", "desc")->paginate(10);
         return view("dashboard.tickets.index", compact("tickets"));
     }
 
@@ -30,22 +30,28 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        $ticket = strtoupper(uniqid());
-        Ticket::create([
-            'ticket_no'=>$ticket,
-            'email'=>request('email'),
-            'subject'=>request('subject'),
-            'department'=>request('department'),
-            'issue'=>request('issue'),
-            'isSolved'=>false
+        $tick = strtoupper(uniqid());
+        $ticket = Ticket::create([
+            'ticket_no' => $tick,
+            'email' => request('email'),
+            'subject' => request('subject'),
+            'department' => request('department'),
+            'issue' => request('issue'),
+            'isSolved' => false
         ]);
-        $message = '<p>Your ticket  '.$ticket.' of subject <b>'.request()->subject.'</b> has been recorded. <br>We .</p>';
-        Mail::send('mails.ticket',
-        ['message'=>$message],
-        function ($message) use ($ticket) {
-            $message->to(request()->email)->subject($ticket.' Update');
-        });
-        return redirect()->route('ticket.index')->with('success','Your ticket ('.$ticket.') has been created successfully.');
+        Mail::send(
+            'mails.ticket',
+            [
+                'ticket' => $ticket->ticket_no,
+                'subject' => $ticket->subject,
+                's' => 'solved',
+                'f' => 'Thank you for your patience'
+            ],
+            function ($message) use ($tick) {
+                $message->to(request()->email)->subject($tick . ' Update');
+            }
+        );
+        return redirect()->route('ticket.index')->with('success', 'Your ticket (' . $tick . ') has been created successfully.');
     }
 
     /**
@@ -70,15 +76,22 @@ class TicketController extends Controller
      */
     public function update($id)
     {
-        Ticket::where('id', $id)->update(['isSolved']);
+        // dd(request());
+        Ticket::where('id', $id)->update(['isSolved' => true]);
         $ticket = Ticket::findOrFail($id);
-        $message = '<p>Your ticket  '.$ticket->ticket_no.' of subject <b>'.$ticket->ticket_no.'</b> has been solved. <br>Thank you for your patience.</p>';
-        Mail::send('mails.ticket',
-        ['message'=>$message],
-        function ($message) use ($ticket) {
-            $message->to(request()->email)->subject(($ticket->ticket_no).' Update');
-        });
-        return redirect()->route('')->with('success',''.$ticket.'');
+        Mail::send(
+            'mails.ticket',
+            [
+                'ticket' => $ticket->ticket_no,
+                'subject' => $ticket->subject,
+                's' => 'solved',
+                'f' => 'Thank you for your patience'
+            ],
+            function ($message) use ($ticket) {
+                $message->to($ticket->email)->subject(($ticket->ticket_no) . ' Update');
+            }
+        );
+        return back()->with('success', $ticket->ticket_no . ' solved');
     }
 
     /**

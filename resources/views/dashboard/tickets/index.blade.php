@@ -37,7 +37,7 @@
             <div class="card {{$ticket->isSolved?'':($ticket->department=='Developer'?'bg-danger text-light':($ticket->department=='Communication'?'bg-warning text-light':'bg-primary text-light'))}} h-100">
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
-                        <form action="{{route('ticket.update',$ticket->id)}}" action="POST">
+                        <form action="{{route('ticket.update',$ticket->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="">

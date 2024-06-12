@@ -1,2 +1,2 @@
 <p>Hello,</p>
-<div><?php echo html_entity_decode($message);?></div>
+<div><p>Your ticket {{$ticket}} of subject <b>{{$subject}}</b> has been {{$s}}. <br>{{$f}}</p></div>
