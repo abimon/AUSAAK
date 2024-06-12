@@ -48,7 +48,7 @@
                     </div>
                     @endif
                     <h5 class="card-title text-uppercase fw-bolder">{{$ticket->subject}}</h5>
-                        
+
                     <h6 class="card-subtitle mb-2 {{$ticket->isSolved?($ticket->department=='Developer'?'text-danger':($ticket->department=='Communication'?'text-warning':'text-info')):'text-body-secondary'}} text-uppercase">
                         {{$ticket->department}}
                     </h6>

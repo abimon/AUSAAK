@@ -22,7 +22,7 @@ class AKArticle extends Model
     }
     public function comments()
     {
-        return $this->hasMany(AComment::class, 'post_id', 'id');
+        return $this->hasMany(AKComment::class, 'post_id', 'id');
     }
     public function likes(){
         return $this->hasMany(Like::class, 'post_id', 'id');
