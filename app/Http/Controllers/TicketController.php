@@ -52,8 +52,8 @@ class TicketController extends Controller
      */
     public function show($state)
     {
-        $ticket = Ticket::where('isSolved', $state)->paginate(10);
-        return view('dashboard.tickets.index', compact('ticket'));
+        $tickets = Ticket::where('isSolved', $state)->paginate(10);
+        return view('dashboard.tickets.index', compact('tickets'));
     }
 
     /**
