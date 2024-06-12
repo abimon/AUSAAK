@@ -39,10 +39,11 @@ class TicketController extends Controller
             'issue'=>request('issue'),
             'isSolved'=>false
         ]);
+        $message = '<p>Your ticket  '.$ticket.' of subject <b>'.request()->subject.'</b> has been recorded. <br>We .</p>';
         Mail::send('mails.ticket',
-        ['ticket'=>$ticket],
+        ['message'=>$message],
         function ($message) use ($ticket) {
-            $message->to(request()->email)->subject($ticket.' Success');
+            $message->to(request()->email)->subject($ticket.' Update');
         });
         return redirect()->route('ticket.index')->with('success','Your ticket ('.$ticket.') has been created successfully.');
     }
@@ -67,9 +68,17 @@ class TicketController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ticket $ticket)
+    public function update($id)
     {
-        //
+        Ticket::where('id', $id)->update(['isSolved']);
+        $ticket = Ticket::findOrFail($id);
+        $message = '<p>Your ticket  '.$ticket->ticket_no.' of subject <b>'.$ticket->ticket_no.'</b> has been solved. <br>Thank you for your patience.</p>';
+        Mail::send('mails.ticket',
+        ['message'=>$message],
+        function ($message) use ($ticket) {
+            $message->to(request()->email)->subject(($ticket->ticket_no).' Update');
+        });
+        return redirect()->route('')->with('success',''.$ticket.'');
     }
 
     /**

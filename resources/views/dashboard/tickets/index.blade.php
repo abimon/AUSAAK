@@ -7,8 +7,9 @@
                 Sort by Department
             </a>
             <ul class="dropdown-menu">
-            <?php $deps = ['All','Developer','Communication','Secretary'
-                    ]; ?>
+                <?php $deps = [
+                    'All', 'Developer', 'Communication', 'Secretary'
+                ]; ?>
                 @foreach ($deps as $dep)
                 <li><a class="dropdown-item" onclick="sortOut('<?php echo $dep; ?>')" id="{{$dep}}">{{$dep}}</a></li>
                 @endforeach
@@ -20,8 +21,7 @@
                             if (element.classList.contains(tit)) {
                                 // console.info(element)
                                 element.style.display = '';
-                            }
-                            else{
+                            } else {
                                 element.style.display = 'none';
                             }
                         });
@@ -30,19 +30,30 @@
             </ul>
         </div>
     </div>
-    
+
     <div class="row">
         @foreach ($tickets as $ticket)
         <div class="col-lg-4 col-md-6 p-2 post All {{$ticket->department}}">
             <div class="card {{$ticket->isSolved?'':($ticket->department=='Developer'?'bg-danger text-light':($ticket->department=='Communication'?'bg-warning text-light':'bg-primary text-light'))}} h-100">
-                <div class="card-body" >
+                <div class="card-body">
+                    <div class="d-flex justify-content-end">
+                        <form action="{{route('ticket.update',$ticket->id)}}" action="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="">
+                                <button type="submit" class="btn btn-outline-dark">Solved</button>
+                            </div>
+                        </form>
+                    </div>
                     <h5 class="card-title text-uppercase fw-bolder">{{$ticket->subject}}</h5>
+                        
                     <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
-                    {{$ticket->department}}
+                        {{$ticket->department}}
                     </h6>
                     <div class="card-text">
                         <?php echo html_entity_decode(mb_substr($ticket->issue, 0, 200)); ?>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -1,2 +1,2 @@
 <p>Hello,</p>
-<p>Your ticket launch {{$ticket}} has been received. We will respond as soon as possible.</p>
+<div><?php echo html_entity_decode($message);?></div>
