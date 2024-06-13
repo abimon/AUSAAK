@@ -36,24 +36,24 @@ class UserController extends Controller
     public function store()
     {
         try {
-            $validateUser = Validator::make(
-                request()->all(),
-                [
-                    'email' => 'required|email|unique:users,email',
-                    'password' => 'required',
-                    'fname' => 'required|string',
-                    'lname' => 'required|string',
-                    'contact' => 'require|min:9',
-                ]
-            );
+            // $validateUser = Validator::make(
+            //     request()->all(),
+            //     [
+            //         'email' => 'required|email|unique:users,email',
+            //         'password' => 'required',
+            //         'fname' => 'required|string',
+            //         'lname' => 'required|string',
+            //         'contact' => 'require|min:9',
+            //     ]
+            // );
 
-            if ($validateUser->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
+            // if ($validateUser->fails()) {
+            //     return response()->json([
+            //         'status' => false,
+            //         'message' => 'validation error',
+            //         'errors' => $validateUser->errors()
+            //     ], 401);
+            // }
 
             $user = User::create([
                 'fname' => request()->fname,
