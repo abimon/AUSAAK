@@ -43,7 +43,7 @@ class UserController extends Controller
                     'password' => 'required',
                     'fname' => 'required|string',
                     'lname' => 'required|string',
-                    'contact' => 'require|min:9',
+                    'contact' => 'required|min:9',
                 ]
             );
 
