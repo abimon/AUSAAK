@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -15,6 +16,7 @@ class UserController extends Controller
 
     public function create()
     {
+        Log::channel("test")->info(json_encode(request()->all()));
         User::create([
             'fname'=>request('fname'),
             'mname'=>request('mname'),
