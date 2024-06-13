@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        Log::channel("test")->info(json_encode(request()->all()));
+        Log::channel("test")->info(json_encode(request()->fname));
         User::create([
             'fname'=>request('fname'),
             'mname'=>request('mname'),
