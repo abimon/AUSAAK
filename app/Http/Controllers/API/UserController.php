@@ -16,6 +16,11 @@ class UserController extends Controller
 
     public function create()
     {
+        
+    }
+
+    public function store(Request $request)
+    {
         Log::channel("test")->info(json_encode(request()->all()));
         User::create([
             'fname'=>request('fname'),
@@ -33,11 +38,6 @@ class UserController extends Controller
             'inst'=>request('inst')
         ]);
         return response()->json(['message'=> 'Success'],200);
-    }
-
-    public function store(Request $request)
-    {
-        //
     }
 
     public function show(string $id)
