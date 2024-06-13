@@ -61,7 +61,7 @@ class UserController extends Controller
                 'email' => request()->email,
                 'contact' => request()->contact,
                 'current_residence' => request()->current_residence,
-                'profile' => request()->profile,
+                'avatar' => request()->profile,
                 'gender' => request()->gender,
                 'chapter' => request()->chapter,
                 'grad_year' => request()->grad_year,
