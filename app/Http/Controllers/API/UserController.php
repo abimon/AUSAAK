@@ -15,23 +15,22 @@ class UserController extends Controller
 
     public function create()
     {
-        return 'success';
-        // User::create([
-        //     'fname'=>request('fname'),
-        //     'mname'=>request('mname'),
-        //     'lname'=>request('lname'),
-        //     'email'=>request('email'),
-        //     'contact'=>request('contact'),
-        //     'current_residence'=>request('current_residence'),
-        //     'profile'=>request('profile'),
-        //     'gender'=>request('gender'),
-        //     'chapter'=>request('chapter'),
-        //     'grad_year'=>request('grad_year'),
-        //     'password'=>request('password'),
-        //     'role'=>request('role'),
-        //     'inst'=>request('inst')
-        // ]);
-        // return response()->json(['message'=> 'Success'],200);
+        User::create([
+            'fname'=>request('fname'),
+            'mname'=>request('mname'),
+            'lname'=>request('lname'),
+            'email'=>request('email'),
+            'contact'=>request('contact'),
+            'current_residence'=>request('current_residence'),
+            'profile'=>request('profile'),
+            'gender'=>request('gender'),
+            'chapter'=>request('chapter'),
+            'grad_year'=>request('grad_year'),
+            'password'=>request('password'),
+            'role'=>request('role'),
+            'inst'=>request('inst')
+        ]);
+        return response()->json(['message'=> 'Success'],200);
     }
 
     public function store(Request $request)
