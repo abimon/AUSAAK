@@ -28,24 +28,26 @@ class UserController extends Controller
         //     // 'grad_year'=>request('grad_year'),
         //     // 'role'=>request('role'),
         //     // 'inst'=>request('inst')
-        
-        
-        return response()->json(['message'=> 'Success'],200);
+
+
+        return response()->json(['message' => 'Success'], 200);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         try {
-            $validateUser = Validator::make($request->all(), 
-            [
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required',
-                'fname'=>'required|string',
-                'lname'=>'required|string',
-                'contact'=>'require|min:9',
-            ]);
+            $validateUser = Validator::make(
+                request()->all(),
+                [
+                    'email' => 'required|email|unique:users,email',
+                    'password' => 'required',
+                    'fname' => 'required|string',
+                    'lname' => 'required|string',
+                    'contact' => 'require|min:9',
+                ]
+            );
 
-            if($validateUser->fails()){
+            if ($validateUser->fails()) {
                 return response()->json([
                     'status' => false,
                     'message' => 'validation error',
@@ -54,21 +56,26 @@ class UserController extends Controller
             }
 
             $user = User::create([
-                'fname'=>$request->fname,
-                'lname'=>$request->lname,
-                'contact'=>$request->fname,
-                'role'=>'Member',
-                'email' => $request->email,
-                'password' => $request->password
+                'fname' => request()->fname,
+                'lname' => request()->lname,
+                'email' => request()->email,
+                'contact' => request()->contact,
+                'current_residence' => request()->current_residence,
+                'profile' => request()->profile,
+                'gender' => request()->gender,
+                'chapter' => request()->chapter,
+                'grad_year' => request()->grad_year,
+                'password' => request()->password,
+                'role' => request()->role,
+                'inst' => request()->inst,
             ]);
 
             return response()->json([
-                'user'=>$user,
+                'user' => $user,
                 'status' => true,
                 'message' => 'User Created Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'token' => request()->createToken("API TOKEN")->plainTextToken
             ], 200);
-
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
