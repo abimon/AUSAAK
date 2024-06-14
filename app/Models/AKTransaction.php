@@ -15,6 +15,8 @@ class AKTransaction extends Model
         'type',
         'treasurer_id',
         'receipt',
+        "created_at",
+        "updated_at"
     ];
     public function giver(){
         return $this->belongsTo(User::class,'user_id','id');
