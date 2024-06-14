@@ -29,8 +29,8 @@ class AKUploadController extends Controller
             } else {
                 $k = '';
             }
-            $filepath = $file->getFileInfo()->getRealPath();
-            $filename =$k.$i.(pathinfo($filepath, PATHINFO_FILENAME));
+            $filepath = $file->getClientOriginalPath();
+            $filename =$k.$i.(pathinfo($filepath, PATHINFO_FILENAME)).($file->getClientOriginalExtension());
             $file->storeAs('public/uploads/', $filename); 
             AKUpload::create([
                 "title"=> $file->getClientOriginalName(),
