@@ -10,8 +10,8 @@ class AKExpenseController extends Controller
 {
     public function index()
     {
-        $accounts = AKAccount::where("isOngoing", true)->paginate(50);
-        $expenses = AKExpense::all();
+        $accounts = AKAccount::where("isOngoing", true)->get();
+        $expenses = AKExpense::orderBy('created_at','desc')->paginate(50);
         return view("dashboard.finance.expenses.index",compact("expenses","accounts"));
     }
 
