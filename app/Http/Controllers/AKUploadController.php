@@ -29,9 +29,8 @@ class AKUploadController extends Controller
             } else {
                 $k = '';
             }
-            $exension =$file->getClientOriginalExtension();
-            $filename =strtoupper(mb_substr(request()->category,0,3)).$k. $i.'.'.$exension;
-            $file->storeAs('public/uploads/'.strtoupper(mb_substr(request()->category,0,5)), $filename); 
+            $filename =$file->getClientOriginalExtension();
+            $file->storeAs('public/uploads/', $filename); 
             AKUpload::create([
                 "title"=> $filename,
                 "user_id"=>Auth()->user()->id,
