@@ -14,8 +14,6 @@ class AKExpense extends Model
         "treasurer_id",
         "recepient",
         "amount",
-        "created_at",
-        "updated_at"
         ];
         function treasurer(){
             return $this->belongsTo(User::class,"treasurer_id","id");

@@ -13,7 +13,9 @@ class AKAccount extends Model
         's_target',
         'a_target',
         'g_target',
-        'isOngoing'
+        'isOngoing',
+        "created_at",
+        "updated_at"
     ];
     public function transactions()
     {
