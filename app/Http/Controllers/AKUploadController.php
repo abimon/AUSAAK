@@ -25,11 +25,11 @@ class AKUploadController extends Controller
         $i = 0;
         foreach(request()->file('files') as $file){
             $filepath =(pathinfo($file->getClientOriginalPath(), PATHINFO_FILENAME));
-            $filename =(Str::slug($filepath,'_')).($file->getClientOriginalExtension());
+            $filename =(Str::slug($filepath,'_')).'.'.($file->getClientOriginalExtension());
             return $filename;
             $file->storeAs('public/uploads/', $filename); 
             AKUpload::create([
-                "title"=> $file->getClientOriginalName(),
+                "title"=> strtoupper(pathinfo($file->getClientOriginalPath(), PATHINFO_FILENAME)),
                 "user_id"=>Auth()->user()->id,
                 "path"=>$filename,
                 "category"=>request()->category,
