@@ -22,8 +22,8 @@ class AKUploadController extends Controller
 
     public function store()
     {
+        $i = 0;
         foreach(request()->file('files') as $file){
-            
             $filepath =(pathinfo($file->getClientOriginalPath(), PATHINFO_FILENAME));
             $filename =(Str::slug($filepath,'_')).($file->getClientOriginalExtension());
             return $filename;
@@ -34,8 +34,9 @@ class AKUploadController extends Controller
                 "path"=>$filename,
                 "category"=>request()->category,
             ]);
+            $i++;
         };
-        return back()->with("success",($i-1)." Files uploaded successfully.");
+        return back()->with("success",($i)." Files uploaded successfully.");
     }
 
     public function show($id)
