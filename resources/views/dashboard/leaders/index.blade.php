@@ -6,7 +6,7 @@
     <div class="row">
         @foreach ($leaders as $leader)
         <div class="col-lg-4 col-md-6 p-2">
-            <div class="card">
+            <div class="card h-100">
                 <div class="card-body " >
                     <h5 class="card-title text-uppercase fw-bolder">{{$leader->user->fname}} {{$leader->user->lname}}</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
