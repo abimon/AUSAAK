@@ -22,15 +22,10 @@ class AKUploadController extends Controller
 
     public function store()
     {
-        $i = 1;
         foreach(request()->file('files') as $file){
-            if($i<10){
-                $k = 0;
-            } else {
-                $k = '';
-            }
+            
             $filepath =(pathinfo($file->getClientOriginalPath(), PATHINFO_FILENAME));
-            $filename =$k.$i.(Str::slug($filepath)).($file->getClientOriginalExtension());
+            $filename =(Str::slug($filepath,'_')).($file->getClientOriginalExtension());
             return $filename;
             $file->storeAs('public/uploads/', $filename); 
             AKUpload::create([
@@ -39,7 +34,6 @@ class AKUploadController extends Controller
                 "path"=>$filename,
                 "category"=>request()->category,
             ]);
-            $i++;
         };
         return back()->with("success",($i-1)." Files uploaded successfully.");
     }
