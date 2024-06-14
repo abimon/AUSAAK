@@ -11,7 +11,7 @@ class AKUploadController extends Controller
    
     public function index()
     {
-        $files = AKUpload::all();
+        $files = AKUpload::orderBy('id','asc')->get();
         return view("dashboard.files.index", compact("files"));
     }
 
