@@ -13,7 +13,7 @@
                         <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
                             {{$leader->role->title}}
                         </h6>
-                        <div class="">
+                        <div class="card-subtitle mb-2">
                             From {{$leader->from}} to {{$leader->to}}
                         </div>
                     </div>
