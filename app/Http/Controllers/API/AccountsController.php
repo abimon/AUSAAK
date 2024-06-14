@@ -34,9 +34,9 @@ class AccountsController extends Controller
                 request()->all(),
                 [
                     'trust' => 'required|string',
-                    'g_target' => 'required|int',
-                    's_target' => 'required|int',
-                    'a_target' => 'required|int',
+                    'g_target' => 'required',
+                    's_target' => 'required',
+                    'a_target' => 'required',
                 ]
             );
 
