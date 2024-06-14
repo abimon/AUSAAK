@@ -37,6 +37,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center">{{$expenses->links()}}</div>
                     <!-- <div class="d-flex justify-content-end">
                         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#print"><i class="fa fa-print"></i> Print</button>
                         <button class="btn btn-outline-danger ms-2" data-bs-toggle="modal" data-bs-target="#mail"><i class="fa fa-envelope"></i> Mail</button>
