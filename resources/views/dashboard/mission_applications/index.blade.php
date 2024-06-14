@@ -1,7 +1,9 @@
 @extends('layouts.dash',['title'=>'Mission Applications'])
 @section('dashboard')
 <div class="container">
-    
+    <div class="d-flex justify-content-end">
+        <a href="{{route('m_application.create')}}"><button class="btn btn-outline-primary"><i class="fa fa-plus"></i> Apply</button></a>
+    </div>
     <div class="row">
         @foreach ($apps as $app)
         <div class="col-lg-4 col-md-6 p-2 post {{$app->district}}">
