@@ -24,7 +24,7 @@ class AKReporistoryController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

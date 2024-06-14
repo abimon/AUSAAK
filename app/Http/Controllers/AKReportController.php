@@ -7,79 +7,49 @@ use Illuminate\Http\Request;
 
 class AKReportController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $reports=AKReport::orderBy("created_at","desc")->paginate(10);
+        return view("dashboard.reports.index",compact("reports"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view("dashboard.report.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $report=AKReport::create([
+            'user_id'=>Auth()->user()->id,
+            'department'=>Auth()->user()->role,
+            'path'=>request()->path(),
+        ]);
+        return redirect()->route('report.show',$report->id)->with('success','Report saved successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AKReport  $aKReport
-     * @return \Illuminate\Http\Response
-     */
-    public function show(AKReport $aKReport)
+    public function show($id)
     {
-        //
+        $report = AKReport::findOrFail($id);
+        return view('dashboard.report.show',compact('report'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\AKReport  $aKReport
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AKReport $aKReport)
+    public function edit($id)
     {
-        //
+        $report = AKReport::findOrFail($id);
+        return view('dashboard.report.edit',compact('report'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AKReport  $aKReport
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, AKReport $aKReport)
+    public function update($id)
     {
-        //
+        AKReport::where('id',$id)->update([
+            'path'=>request()->path(),
+        ]);
+        return redirect()->route('report.show')->with('success','Report updated successfully.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AKReport  $aKReport
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(AKReport $aKReport)
+    public function destroy($id)
     {
-        //
+        AKReport::destroy($id);
+        return redirect()->route('report.index')->with('success','Report delete successfully');
     }
 }

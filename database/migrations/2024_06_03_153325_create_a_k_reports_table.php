@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('department');
-            $table->string('path');
+            $table->longText('path');
             $table->timestamps();
         });
     }

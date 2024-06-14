@@ -67,13 +67,13 @@
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#actreport" aria-expanded="true" aria-controls="actreport">
+                <a class="nav-link collapsed" href="{{route('report.create')}}" data-toggle="collapse" data-target="#actreport" aria-expanded="true" aria-controls="actreport">
                     <i class="bi bi-activity"></i>
                     <span>Activity Reports</span>
                 </a>
                 <div id="actreport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">My Department</a>
+                        <a class="collapse-item" href="{{route('report.index')}}">My Department</a>
                     </div>
                 </div>
             </li>
@@ -86,10 +86,7 @@
                 </a>
                 <div id="finance" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Latest Expenses</a>
-                        <a class="collapse-item" href="">Monthly Report</a>
-                        <a class="collapse-item" href="">Annual Report</a>
-                        <a class="collapse-item" href="">Aggregate</a>
+                        <a class="collapse-item" href="{{route('expense.index')}}">Aggregate</a>
                     </div>
                 </div>
             </li>
@@ -150,7 +147,7 @@
                         <h6 class="collapse-header">Department Revenues:</h6>
                         <a class="collapse-item" href="{{route('account.index')}}">Accounts</a>
                         <a class="collapse-item" href="{{route('transaction.index')}}">Contributions</a>
-                        <a class="collapse-item" href="">Report</a>
+                        <a class="collapse-item" href="{{route('report.index')}}">Report</a>
                     </div>
                 </div>
             </li>
@@ -165,7 +162,7 @@
                     <div class="bg-gradient-light py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Department Expenses:</h6>
                         <a class="collapse-item" href="{{route('expense.index')}}">Expenses</a>
-                        <a class="collapse-item" href="">Reports</a>
+                        <a class="collapse-item" href="{{route('report.index')}}">Reports</a>
                     </div>
                 </div>
             </li>
@@ -180,11 +177,11 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#uploads" aria-expanded="true" aria-controls="uploads">
                     <i class="bi bi-cloud-arrow-up-fill"></i>
-                    <span>Uploads</span>
+                    <span>Library</span>
                 </a>
                 <div id="uploads" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('upload.index')}}">All Uploads</a>
+                        <a class="collapse-item" href="{{route('upload.index')}}">Library</a>
                         <a class="collapse-item" href="" data-bs-toggle="modal" data-bs-target="#upload">Upload</a>
                     </div>
                 </div>
