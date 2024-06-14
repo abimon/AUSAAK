@@ -33,7 +33,7 @@ class AccountsController extends Controller
             $validateUser = Validator::make(
                 request()->all(),
                 [
-                    'trust' => 'required|string',
+                    'name' => 'required|string',
                     'g_target' => 'required',
                     's_target' => 'required',
                     'a_target' => 'required',
