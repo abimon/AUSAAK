@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\AKAccount;
+use App\Models\AKTransaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class AccountsController extends Controller
@@ -21,14 +23,7 @@ class AccountsController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
+        
         try {
             $validateUser = Validator::make(
                 request()->all(),
@@ -59,6 +54,61 @@ class AccountsController extends Controller
                 'status' => true,
                 'message' => 'Account Created Successfully',
             ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        try {
+            $validateUser = Validator::make(
+                request()->all(),
+                [
+                    'amount' => 'required',
+                    'transactionType' => 'required',
+                    'receipt' => 'required',
+                    'contact' => 'required',
+                    'account'=>'required',
+                ]
+            );
+
+            if ($validateUser->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $validateUser->errors()
+                ], 401);
+            }
+            $acc = AKAccount::where('name',request()->account)->first();
+            $treasurer = User::where('role', 'Treasurer')->first();
+            $user = User::where('contact', request()->contact)->first();
+            if(!$user){
+                return response()->json(['message'=>'This user is not found'],200);
+            }
+            else{
+                $account = AKTransaction::create([
+                    'account_id'=>$acc->id,
+                    'amount'=>request()->amount,
+                    'user_id'=>$user->id,
+                    'type'=>request()->transactionType,
+                    'treasurer_id'=>$treasurer->id,
+                    'receipt'=>request()->receipt,
+                    'created_at'=>request()->created_at,
+                    'updated_at'=>request()->updated_at
+                ]);
+                return response()->json([
+                    'account'=>$account,
+                    'status' => true,
+                    'message' => 'Account Created Successfully',
+                ], 200);
+            }
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
