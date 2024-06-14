@@ -15,3 +15,6 @@ Route::controller(AccountsController::class)->group(function () {
     Route::post('/account/store','store');
     Route::post('/account/create','create');
 });
+Route::controller(UserController::class)->group(function () {
+    Route::post('/expense/store', 'store');
+});
