@@ -40,8 +40,8 @@
                         {{$file->category}}
                     </h6>
                     <div class="d-flex justify-content-between">
-                        <a href="/storage/uploads/{{strtoupper(mb_substr($file->category,0,5)).'/'.($file->path)}}" class="text-decoration-none text-info" download>Download</a>
-                        <a href="/storage/uploads/{{strtoupper(mb_substr($file->category,0,5)).'/'.($file->path)}}" class=" text-decoration-none text-primary" target="_blank">Read...</a>
+                        <a href="/storage/uploads/{{$file->path}}" class="text-decoration-none text-info" download>Download</a>
+                        <a href="/storage/uploads/{{$file->path}}" class=" text-decoration-none text-primary" target="_blank">Read...</a>
                     </div>
                 </div>
             </div>
