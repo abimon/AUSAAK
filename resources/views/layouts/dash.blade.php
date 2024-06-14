@@ -32,9 +32,8 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">{{Auth()->user()->role}} PANEL</div>
+                <div class="sidebar-brand-text mx-3"><?php echo html_entity_decode(mb_substr(Auth()->user()->role, 0, 300)); ?> PANEL</div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
