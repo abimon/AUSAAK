@@ -11,6 +11,6 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function(){
     Route::post('/user/store', 'store');
 });
-Route::resources([
-    'account'=>AccountsController::class,
-]);
+Route::controller(AccountsController::class)->group(function () {
+    Route::post('/account/store','store');
+});
