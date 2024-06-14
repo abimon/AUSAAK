@@ -50,6 +50,8 @@ class ExpenseController extends Controller
                 "treasurer_id" => $treasurer->id,
                 "recepient" => request("recepient"),
                 "amount" => request("amount"),
+                "created_at"=>request('created_at'),
+                "updated_at"=>request('updated_at'),
             ]);
             return response()->json([
                 'account' => $expense,
