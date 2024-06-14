@@ -55,6 +55,7 @@ class AccountsController extends Controller
                 'isOngoing'=>request("isOngoing")
             ]);
             return response()->json([
+                'account'=>$account,
                 'status' => true,
                 'message' => 'Account Created Successfully',
             ], 200);
