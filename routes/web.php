@@ -29,7 +29,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/dashboard');
 });
-
+Route::get('/mission/apply', function () {
+    return redirect()->route('m_application.create');
+});
 Auth::routes();
 
 Route::get('/home', function () {
