@@ -467,7 +467,7 @@
                         <div class="form-floating mb-2">
                             <select name="user_id" id="" class="form-select">
                                 @foreach (App\Models\User::select('id','fname','lname')->orderBy('fname','asc')->get() as $user )
-                                <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
+                                <option class="text-capitalize" value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
                                 @endforeach
                             </select>
                             <label for="location" class="text-capitalize">Name</label>
