@@ -4,8 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -17,20 +15,7 @@ class UserController extends Controller
 
     public function create()
     {
-        // 'fname'=>request('fname'),
-        //     'email'=>request('email'),
-        //     // 'contact'=>request('contact'),
-        //     'password'=>request('password'),
-        //     // 'current_residence'=>request('current_residence'),
-        //     // 'profile'=>request('profile'),
-        //     // 'gender'=>request('gender'),
-        //     // 'chapter'=>request('chapter'),
-        //     // 'grad_year'=>request('grad_year'),
-        //     // 'role'=>request('role'),
-        //     // 'inst'=>request('inst')
-
-
-        return response()->json(['message' => 'Success'], 200);
+       
     }
 
     public function store()
