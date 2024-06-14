@@ -28,6 +28,10 @@ class AKLeaderController extends Controller
             ['to', request('to')]
         ])->first();
         if(!$leader){
+            $user = User::findOrFail(request('user_id'));
+            if($user->role!='Member'){
+                AKLeader::where('user_id', $user->id)->take(1)->latest()->update(['to'=> date('Y')]);
+            }
             AKLeader::create([
                 'user_id' => request('user_id'),
                 'role_id' => request('role'),
