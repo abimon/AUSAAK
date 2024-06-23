@@ -124,7 +124,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu fade-up m-0">
-                            <a href="" class="dropdown-item">Studies</a>
+                            <a href="{{route('article.index')}}" class="dropdown-item">Articles</a>
                             <a href="/#leadership" class="dropdown-item">Leadership</a>
                             <a href="" class="dropdown-item">Testimonial</a>
                         </div>

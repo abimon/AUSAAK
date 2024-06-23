@@ -46,7 +46,6 @@ Route::middleware('auth')->group(function () {
         // Social
         'notification'=>AKNotificationController::class,
         'chat' => AKChatController::class,
-        'article'=>AKArticleController::class,
         'event'=>AKEventController::class,
         'react'=>ArticleReactionController::class,
         'upload'=>AKUploadController::class,
@@ -74,4 +73,5 @@ Route::middleware('auth')->group(function () {
 Route::resources([
     'm_application'=>MissionApplicationController::class,
     'bible'=>BibleVersesKjvController::class,
+    'article'=>AKArticleController::class,
 ]);

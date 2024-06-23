@@ -1,6 +1,6 @@
-@extends('layouts.dash',['title'=>'Articles'])
-@section('dashboard')
-<div class="container">
+@extends(Auth()->user() ==null?'layouts.app':'layouts.dash',['title'=>'Articles'])
+@section(Auth()->user() ==null?'content':'dashboard')
+<div class="container mt-5">
     <div class="d-flex justify-content-end">
         <div class="dropdown">
             <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
