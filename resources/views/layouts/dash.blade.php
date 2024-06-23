@@ -43,7 +43,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+            @if((Auth()->user()->role != 'Member'))
             <hr class="sidebar-divider">
 
             <!-- Engineers Heading -->
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
+            @if((Auth()->user()->role == 'Treasurer')||(Auth()->user()->role == 'Website'))
             <hr class="sidebar-divider d-none d-md-block">
             <div class="sidebar-heading">
                 Finances
@@ -165,6 +165,8 @@
                     </div>
                 </div>
             </li>
+            @endif
+            @endif
             <hr class="sidebar-divider">
 
             <!-- Engineers Heading -->
@@ -220,6 +222,7 @@
                     </div>
                 </div>
             </li>
+            @if(Auth()->user()->role == 'Website')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#log" aria-expanded="true" aria-controls="log">
                     <i class="bi bi-code-slash"></i>
@@ -232,7 +235,7 @@
                     </div>
                 </div>
             </li>
-
+            @endif
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
