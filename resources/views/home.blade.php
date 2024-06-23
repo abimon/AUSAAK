@@ -209,8 +209,11 @@
 
     <!-- Booking Start -->
     <div class="container-fluid my-5 px-0">
-        <div class="video wow fadeInUp" data-wow-delay="0.1s">
-            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://youtu.be/SZF_jWeE8Y4" data-bs-target="#videoModal">
+        <?php 
+        $image =asset('storage/images/prison.jpeg'); 
+        ?>
+        <div class="video wow fadeInUp" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url({{$image}}) center center no-repeat;">
+            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/watch?v=SZF_jWeE8Y4&ab_channel=SDACHURCH%2CJKUAT" data-bs-target="#videoModal">
                 <span></span>
             </button>
 
@@ -224,7 +227,7 @@
                         <div class="modal-body">
                             <!-- 16:9 aspect ratio -->
                             <div class="ratio ratio-16x9">
-                                <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
+                                <iframe width="695" height="391" src="https://www.youtube.com/embed/SZF_jWeE8Y4" title="JKUSDA CHURCH | 2021 Kamwangi Mission Reflections" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
