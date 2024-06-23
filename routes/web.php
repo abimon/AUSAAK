@@ -26,9 +26,9 @@ use App\Http\Middleware\RegUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect('/dashboard');
-});
+Route::controller(HomeController::class)->group(function () {
+    Route::get("/", "index");
+ });
 Route::get('/mission/apply', function () {
     return redirect()->route('m_application.create');
 });
