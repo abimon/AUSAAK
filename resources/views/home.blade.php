@@ -117,7 +117,7 @@
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                     <i class="fa fa-check fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">{{date('Y')-1998}}</h2>
-                    <p class="text-white mb-0">Years Exsistance</p>
+                    <p class="text-white mb-0">Years Existence</p>
                 </div>
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
                     <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
@@ -210,7 +210,7 @@
     <!-- Booking Start -->
     <div class="container-fluid my-5 px-0">
         <div class="video wow fadeInUp" data-wow-delay="0.1s">
-            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://youtu.be/SZF_jWeE8Y4" data-bs-target="#videoModal">
                 <span></span>
             </button>
 
@@ -230,16 +230,15 @@
                     </div>
                 </div>
             </div>
-
-            <h1 class="text-white mb-4">Emergency Plumbing Service</h1>
-            <h3 class="text-white mb-0">24 Hours 7 Days a Week</h3>
+            <h3 class="text-white mb-0">100%</h3>
+            <h1 class="text-white mb-4">Community Impact Desire</h1>
         </div>
         <div class="container position-relative wow fadeInUp" data-wow-delay="0.1s" style="margin-top: -6rem;">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="bg-light text-center p-5">
+                        @if(date('m')==5)
                         <h1 class="mb-4">Apply for Mission</h1>
-
                         <form action="{{route('m_application.store')}}" method="post">
                             @csrf
                             <div class="row">
@@ -291,6 +290,9 @@
                                 </button>
                             </div>
                         </form>
+                        @else
+                        <h3 class="mb-4">We are currently planning for our next mission work. Pray with us and support via <b>Paybill 522533 Acc. 1279252944 </b></h3>
+                        @endif
                     </div>
                 </div>
             </div>
