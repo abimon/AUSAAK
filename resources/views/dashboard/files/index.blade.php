@@ -1,7 +1,7 @@
 @extends('layouts.dash',['title'=>'Files'])
 @section('dashboard')
 <div class="container">
-    <?php $cats = ['Ugunduzi', 'Discover Guide', 'Health', 'Others']; ?>
+    <?php $cats = ['Ugunduzi', 'Discover', 'Health', 'Others']; ?>
 
     <div class="d-flex justify-content-end">
         <div class="dropdown">

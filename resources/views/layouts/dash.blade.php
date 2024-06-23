@@ -519,7 +519,7 @@
                     <div class="modal-body">
                         <div class="form-floating mb-2">
                             <select name="category" id="" class="form-select">
-                                <?php $category = ['Ugunduzi', 'Discover Guide', 'Health', 'Others']; ?>
+                                <?php $category = ['Ugunduzi', 'Discover', 'Health', 'Others']; ?>
                                 @foreach ($category as $cat)
                                 <option value="{{$cat}}">{{$cat}}</option>
                                 @endforeach
@@ -546,10 +546,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{asset('storage/dash/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="{{asset('storage/dash/js/sb-admin-2.min.js')}}"></script>
-    
 </body>
 
 </html>
