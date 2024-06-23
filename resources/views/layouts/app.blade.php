@@ -119,17 +119,17 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav me-auto">
                     <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/events" class="nav-item nav-link">Activities</a>
+                    <a href="/#about" class="nav-item nav-link">About</a>
+                    <a href="/#activities" class="nav-item nav-link">Activities</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu fade-up m-0">
                             <a href="" class="dropdown-item">Studies</a>
-                            <a href="" class="dropdown-item">Leadership</a>
+                            <a href="/#leadership" class="dropdown-item">Leadership</a>
                             <a href="" class="dropdown-item">Testimonial</a>
                         </div>
                     </div>
-                    <a href="contact" class="nav-item nav-link">Contact</a>
+                    <a href="/#contact" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 50px; height: 50px;">
