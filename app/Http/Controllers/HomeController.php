@@ -13,7 +13,7 @@ class HomeController extends Controller
         $members = User::all()->count();
         $missions=Mission::all()->count();
         $projects = 0;
-        $leaders = User::where("role", "!=", "Member")->get();
+        $leaders = User::where("role", "!=", "Member")->orderBy('role','asc')->get();
         $counties = [
             "Mombasa", "Isiolo", "Murang’a", "Laikipia", "Siaya", "Kwale", "Meru",
             "Kiambu", "Nakuru", "Kisumu", "Kilifi", "Tharaka Nithi", "Turkana", "Narok", "Homa Bay",
