@@ -132,12 +132,15 @@
                     <a href="/#contact" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
-                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 50px; height: 50px;">
+                    <div class="d-flex flex-shrink-0 align-items-center justify-content-between bg-light" style="width: 50px; height: 50px;">
                         <img src="https://ausaakenya.com/storage/images/logo.png" alt="" style="width:100%;object-fit:scale-down;">
                     </div>
                     <div class="ms-3">
                         <p class="mb-1 text-white">AUSAA</p>
                         <h5 class="m-0 text-secondary">KENYA</h5>
+                    </div>
+                    <div class="ms-2 text-center" style="font-size:xxx-large">
+                        <a href="/dashboard"><i class="bi bi-person-circle text-light"></i></a>
                     </div>
                 </div>
             </div>
