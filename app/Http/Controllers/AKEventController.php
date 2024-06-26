@@ -37,7 +37,7 @@ class AKEventController extends Controller
             'event_desc'=>request('event_desc'),
             'permissions'=>'General'
         ]);
-        return redirect()->route('event.show',$event->id)->with('success','Event created successful.');
+        return redirect()->back()->with('success','Event created successful.');
     }
 
     public function show($id)
