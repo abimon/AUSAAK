@@ -81,6 +81,9 @@
                     <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
                         {{$event->event_date}}
                     </h6>
+                    <div class="card-img-top">
+                    <img id="out" src="{{asset('storage/cover/'.$event->cover)}}" style="width: 100%; object-fit:contain;" />
+                    </div>
                     <div class="card-text">
                         <?php echo html_entity_decode(mb_substr($event->event_desc, 0, 300)); ?>...
                     </div>
@@ -137,7 +140,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                        <button type="submit" class="btn btn-primary">Update changes</button>
                                     </div>
                                 </form>
                             </div>
