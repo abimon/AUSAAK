@@ -104,11 +104,11 @@
                                             <label for="">Date</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="time" name="from" value="{{$event->from}}" class="form-control">
+                                            <input type="time" name="from" value="{{$event->event_time}}" class="form-control">
                                             <label for="">Time</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" name="{{$event->event_desc}}" value="event_desc" class="form-control">
+                                            <input type="text" name="event_desc" value="{{$event->event_desc}}" class="form-control">
                                             <label for="">Description</label>
                                         </div>
                                         <div class="">
