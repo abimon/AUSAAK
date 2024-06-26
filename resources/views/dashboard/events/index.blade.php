@@ -70,18 +70,20 @@
             <div class="card">
                 <div class="card-body ">
                     <h5 class="card-title text-uppercase fw-bolder">{{$event->event_title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
-                        {{$event->event_date}}
-                    </h6>
-                    <div class="card-text">
-                        <?php echo html_entity_decode(mb_substr($event->event_desc, 0, 300)); ?>...
-                    </div>
+
                     <div class="d-flex justify-content-between">
+                        <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
+                            {{$event->event_date}}
+                        </h6>
                         <div class="d-flex justify-content-between">
                             <div class="col-4"><i class="bi bi-vector-pen"></i></div>
                             <div class="col-4"><i class="bi bi-eye"></i></div>
                         </div>
                     </div>
+                    <div class="card-text">
+                        <?php echo html_entity_decode(mb_substr($event->event_desc, 0, 300)); ?>...
+                    </div>
+
                 </div>
             </div>
         </div>
