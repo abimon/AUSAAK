@@ -71,10 +71,12 @@
                 <div class="card-body ">
                     <div class="d-flex justify-content-between">
                         <h5 class="card-title text-uppercase fw-bolder">{{$event->event_title}}</h5>
+                        @if ((Auth()->user()->role == 'Activity Coordinator')||(Auth()->user()->role == 'Website'))
                         <div class="row">
                             <div class="col-4"><i class="bi bi-vector-pen" data-bs-toggle="modal" data-bs-target="#Edit{{$event->id}}"></i></div>
-                            <div class="col-4"><i class="bi bi-eye"></i></div>
+                            <div class="col-4"><i class="bi bi-trash"></i></div>
                         </div>
+                        @endif
                     </div>
                     <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
                         {{$event->event_date}}
