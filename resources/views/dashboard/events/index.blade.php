@@ -114,7 +114,7 @@
                                         <div class="">
                                             <label for="">Cover Image</label>
                                             <div class="m-3 card p-3 border-dark bg-transparent" style="border-style:dashed;">
-                                                <img id="out" src="" style="width: 100%; object-fit:contain;" />
+                                                <img id="out" src="{{asset('storage/cover/'.$event->cover)}}" style="width: 100%; object-fit:contain;" />
                                                 <input type="file" accept="image/jpeg, image/png, image/webp" name="cover" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
                                                 <div class="pt-2" id="desc">
                                                     <div class="text-center" style="font-size: xxx-large; font-weight:bolder;">
