@@ -16,19 +16,19 @@
                 <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-floating">
+                        <div class="form-floating mb-2">
                             <input type="text" name="event_title" placeholder=" " id="" class="form-control">
                             <label for="">Title</label>
                         </div>
-                        <div class="form-floating">
+                        <div class="form-floating mb-2">
                             <input type="date" name="event_date" placeholder=" " id="" class="form-control">
                             <label for="">Date</label>
                         </div>
-                        <div class="form-floating">
+                        <div class="form-floating mb-2">
                             <input type="time" name="from" placeholder=" " id="" class="form-control">
                             <label for="">Time</label>
                         </div>
-                        <div class="form-floating">
+                        <div class="form-floating mb-2">
                             <input type="text" name="event_desc" placeholder=" " id="" class="form-control">
                             <label for="">Description</label>
                         </div>
