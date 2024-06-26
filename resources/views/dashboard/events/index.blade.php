@@ -73,7 +73,7 @@
 
                     <div class="d-flex justify-content-between">
                         <h5 class="card-title text-uppercase fw-bolder">{{$event->event_title}}</h5>
-                        <div>
+                        <div class="row">
                             <div class="col-4"><i class="bi bi-vector-pen" data-bs-toggle="modal" data-bs-target="#Edit{{$event->id}}"></i></div>
                             <div class="col-4"><i class="bi bi-eye"></i></div>
                         </div>
