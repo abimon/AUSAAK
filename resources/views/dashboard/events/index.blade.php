@@ -67,10 +67,8 @@
     <div class="row">
         @foreach ($events as $event)
         <div class="col-lg-4 col-md-6 p-2">
-            <div class="card">
+            <div class="card h-100">
                 <div class="card-body ">
-
-
                     <div class="d-flex justify-content-between">
                         <h5 class="card-title text-uppercase fw-bolder">{{$event->event_title}}</h5>
                         <div class="row">
@@ -82,10 +80,10 @@
                         {{$event->event_date}}
                     </h6>
                     <div class="card-img-top">
-                    <img id="out" src="{{asset('storage/cover/'.$event->cover)}}" style="width: 100%; object-fit:contain;" />
+                        <img id="out" src="{{asset('storage/cover/'.$event->cover)}}" style="width: 100%; object-fit:contain;" />
                     </div>
                     <div class="card-text">
-                        <?php echo html_entity_decode(mb_substr($event->event_desc, 0, 300)); ?>...
+                        <?php echo html_entity_decode($event->event_desc); ?>...
                     </div>
                     <div class="modal fade" id="Edit{{$event->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
