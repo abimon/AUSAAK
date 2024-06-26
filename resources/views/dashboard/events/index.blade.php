@@ -76,7 +76,6 @@
                     <div class="card-text">
                         <?php echo html_entity_decode(mb_substr($event->event_desc, 0, 300)); ?>...
                     </div>
-                    <!-- <a href="{{route('react.create',['post_id'=>$article->id])}}"> -->
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-between">
                             <div class="col-4"><i class="bi bi-vector-pen"></i></div>
