@@ -13,28 +13,47 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Event</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{route('event.store')}}" method="post">
-                @csrf
+                <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="modal-body">
                         <div class="form-floating">
                             <input type="text" name="event_title" placeholder=" " id="" class="form-control">
                             <label for="">Title</label>
                         </div>
                         <div class="form-floating">
-                            <input type="text" name="event_date" placeholder=" " id="" class="form-control">
+                            <input type="date" name="event_date" placeholder=" " id="" class="form-control">
                             <label for="">Date</label>
                         </div>
                         <div class="form-floating">
-                            <input type="text" name="from" placeholder=" " id="" class="form-control">
+                            <input type="time" name="from" placeholder=" " id="" class="form-control">
                             <label for="">Time</label>
                         </div>
                         <div class="form-floating">
                             <input type="text" name="event_desc" placeholder=" " id="" class="form-control">
-                            <label for=""></label>
+                            <label for="">Description</label>
                         </div>
-                        <div class="form-floating">
-                            <input type="text" name="" placeholder=" " id="" class="form-control">
-                            <label for=""></label>
+                        <div class="">
+                            <label for="">Cover Image</label>
+                            <div class="m-3 card p-3 border-dark bg-transparent" style="border-style:dashed;">
+                                <img id="out" src="" style="width: 100%; object-fit:contain;" />
+                                <input type="file" accept="image/jpeg, image/png, image/webp" name="cover" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
+                                <div class="pt-2" id="desc">
+                                    <div class="text-center" style="font-size: xxx-large; font-weight:bolder;">
+                                        <i class="bi bi-upload"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <label for="cover" class="btn btn-success text-white" title="Upload new profile image">Browse</label>
+                                    </div>
+                                    <div class="text-center prim">*File supported .png .jpg .webp</div>
+                                </div>
+                                <script>
+                                    var loadCoverFile = function(event) {
+                                        var image = document.getElementById('out');
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                        document.getElementById('cover').value == image.src;
+                                    };
+                                </script>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

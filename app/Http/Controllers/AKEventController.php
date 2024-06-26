@@ -31,7 +31,7 @@ class AKEventController extends Controller
             'cover'=> $cover,
             'event_title'=>request('event_title'),
             'user_id'=>Auth()->user()->id,
-            'department'=>request('department'),
+            'department'=>Auth()->user()->role,
             'event_date'=>request('event_date'),
             'event_time'=>request('from'),
             'event_desc'=>request('event_desc'),
