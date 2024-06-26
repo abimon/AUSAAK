@@ -207,7 +207,28 @@
                 </div>
             </li>
             <hr class="sidebar-divider">
+            @if ((Auth()->user()->role == 'Activity Coordinator')||(Auth()->user()->role == 'Website')||(Auth()->user()->role == 'Patron')||(Auth()->user()->role == 'Chairperson'))
+            <div class="sidebar-heading">
+                Events
+            </div>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#events" aria-expanded="true" aria-controls="events">
+                    <i class="bi bi-calendar"></i>
+                    <span>Events Management</span>
+                </a>
+                <div id="events" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('event.index')}}">All Events</a>
+                        <a class="collapse-item" href="">Registrations</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider">
+            @endif
+            
             <!-- Engineers Heading -->
             <div class="sidebar-heading">
                 Developer
