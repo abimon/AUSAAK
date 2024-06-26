@@ -42,14 +42,13 @@ class AKEventController extends Controller
 
     public function show($id)
     {
-        $event = AKEvent::findOrFail($id);
-        return view('dashboard.events.show',compact('event'));
+       
     }
 
     public function edit($id)
     {
-        $event = AKEvent::findOrFail($id);
-        return view('dashboard.events.edit',compact('event'));
+        $events = AKEvent::findOrFail($id);
+        return view('dashboard.events.edit',compact('events'));
     }
 
     public function update($id)
