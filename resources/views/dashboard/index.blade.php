@@ -104,5 +104,6 @@
             </div>
         </div>
     </div>
-    <!-- Content Row -->
-    @endsection
+</div>
+<!-- Content Row -->
+@endsection

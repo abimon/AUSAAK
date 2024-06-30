@@ -14,12 +14,15 @@ use App\Http\Controllers\AKTransactionController;
 use App\Http\Controllers\AKUploadController;
 use App\Http\Controllers\ArticleReactionController;
 use App\Http\Controllers\BibleVersesKjvController;
+use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\MissionApplicationController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\MissionFileController;
 use App\Http\Controllers\MissionRegistrationController;
 use App\Http\Controllers\MissionSitesController;
+use App\Http\Controllers\SMSController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RegUser;
@@ -63,6 +66,11 @@ Route::middleware('auth')->group(function () {
         'm_files'=>MissionFileController::class,
         // Dev
         'ticket'=>TicketController::class,
+
+        //Communication
+        'inventory'=>InventoryController::class,
+        'borrow'=>BorrowController::class,
+        'message'=>SMSController::class,
 
     ]);
     Route::get('/step-two', function () {

@@ -228,6 +228,38 @@
 
             <hr class="sidebar-divider">
             @endif
+            @if ((Auth()->user()->role == 'Public Address System (PA) and Communication')||(Auth()->user()->role == 'Website')||(Auth()->user()->role == 'Patron')||(Auth()->user()->role == 'Chairperson'))
+            <div class="sidebar-heading">
+                Communication
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#invent" aria-expanded="true" aria-controls="invent">
+                    <i class="bi bi-megaphone"></i>
+                    <span>Inventory</span>
+                </a>
+                <div id="invent" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('inventory.index')}}">Inventory</a>
+                        <a class="collapse-item" href="{{route('borrow.index')}}">Borrowing</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#messages" aria-expanded="true" aria-controls="messages">
+                    <i class="bi bi-envelope"></i>
+                    <span>Communications</span>
+                </a>
+                <div id="messages" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('message.create')}}">Send Message</a>
+                        <a class="collapse-item" href="{{route('message.index')}}">Sent Messages</a>
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            @endif
             
             <!-- Engineers Heading -->
             <div class="sidebar-heading">
