@@ -8,27 +8,26 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('a_k_reports', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('department');
-            $table->longText('path');
+            $table->string('title');
+            $table->string('slug');
+            $table->longText('details');
+            $table->boolean('isPublic')->default(false);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('a_k_reports');
+        Schema::dropIfExists('reports');
     }
 };

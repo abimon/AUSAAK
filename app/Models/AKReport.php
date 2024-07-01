@@ -12,5 +12,8 @@ class AKReport extends Model
         'user_id',
         'department',
         'path',
+        'year',
+        'created_at',
+        'updated_at'
     ];
 }

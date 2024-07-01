@@ -4,8 +4,28 @@
 <div class="container">
     <form method="post" action="{{route('report.store')}}" class="row">
         @csrf
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" name="title" placeholder=" " required>
+                    <label for="">Report Title</label>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" name="department" value="{{Auth()->user()->role}}" disabled>
+                    <label for="">Department</label>
+                </div>
+            </div>
+        </div>
         <div class="col-12 mb-2">
-            <textarea name="path" id="editor1">{{ old('path') }}</textarea>
+            <textarea name="details" id="editor1" class="form-control">{{ old('details') }}</textarea>
+        </div>
+        <div class="form-check text-end">
+            <input class="form-check-input" name="isPublic" type="checkbox" value='1' id="flexCheckIndeterminate" checked>
+            <label class="form-check-label" for="flexCheckIndeterminate">
+                Available to all Members
+            </label>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save</button>

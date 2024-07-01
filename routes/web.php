@@ -22,6 +22,7 @@ use App\Http\Controllers\MissionController;
 use App\Http\Controllers\MissionFileController;
 use App\Http\Controllers\MissionRegistrationController;
 use App\Http\Controllers\MissionSitesController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SMSController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
@@ -55,10 +56,10 @@ Route::middleware('auth')->group(function () {
         // User
         'user' => UserController::class,
         // Leadership
-        'report'=>AKReportController::class,
+        'report'=>ReportController::class,
         'role'=>AKRoleController::class,
         'leader'=>AKLeaderController::class,
-        'repository'=>AKReporistoryController::class,
+        'repository'=>AKReportController::class,
         // Mission
         'mission'=>MissionController::class,
         'm_registration'=>MissionRegistrationController::class,

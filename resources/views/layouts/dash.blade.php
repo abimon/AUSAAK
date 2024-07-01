@@ -76,7 +76,8 @@
                 </a>
                 <div id="actreport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('report.index')}}">My Department</a>
+                        <a class="collapse-item" href="{{route('report.index')}}">View Reports</a>
+                        <a class="collapse-item" href="{{route('report.create')}}">Write Report</a>
                     </div>
                 </div>
             </li>
@@ -84,24 +85,22 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#finance" aria-expanded="true" aria-controls="finance">
-                    <i class="bi bi-bar-chart"></i>
-                    <span>Finance Reports</span>
+                    <i class="bi bi-cloud-upload"></i>
+                    <span>Uploaded Reports</span>
                 </a>
                 <div id="finance" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{route('expense.index')}}">Aggregate</a>
+                        <a class="collapse-item" href="{{route('repository.index')}}">View</a>
+                        <a class="collapse-item" href="" data-bs-toggle="modal" data-bs-target="#report">Upload</a>
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!--Loan Client Heading -->
+            <!--Missions-->
             <div class="sidebar-heading">
                 Missions
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#missions" aria-expanded="true" aria-controls="missions">
                     <i class="bi bi-window-stack"></i>
@@ -116,8 +115,6 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postApplication" aria-expanded="true" aria-controls="postApplication">
                     <i class="bi bi-window-plus"></i>
@@ -133,6 +130,7 @@
                     </div>
                 </div>
             </li>
+            <!--Treasury-->
             @if((Auth()->user()->role == 'Treasurer')||(Auth()->user()->role == 'Website'))
             <hr class="sidebar-divider d-none d-md-block">
             <div class="sidebar-heading">
@@ -173,12 +171,10 @@
             @endif
             <hr class="sidebar-divider">
 
-            <!-- Engineers Heading -->
+            <!-- Articles & Studies-->
             <div class="sidebar-heading">
                 Articles
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#uploads" aria-expanded="true" aria-controls="uploads">
                     <i class="bi bi-cloud-arrow-up-fill"></i>
@@ -191,8 +187,6 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#writings" aria-expanded="true" aria-controls="writings">
                     <i class="bi bi-vector-pen"></i>
@@ -207,12 +201,12 @@
                 </div>
             </li>
             <hr class="sidebar-divider">
+
+            <!--Events-->
             @if ((Auth()->user()->role == 'Activity Coordinator')||(Auth()->user()->role == 'Website')||(Auth()->user()->role == 'Patron')||(Auth()->user()->role == 'Chairperson'))
             <div class="sidebar-heading">
                 Events
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#events" aria-expanded="true" aria-controls="events">
                     <i class="bi bi-calendar"></i>
@@ -225,15 +219,14 @@
                     </div>
                 </div>
             </li>
-
             <hr class="sidebar-divider">
             @endif
+
+            <!--Communication-->
             @if ((Auth()->user()->role == 'Public Address System (PA) and Communication')||(Auth()->user()->role == 'Website')||(Auth()->user()->role == 'Patron')||(Auth()->user()->role == 'Chairperson'))
             <div class="sidebar-heading">
                 Communication
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#invent" aria-expanded="true" aria-controls="invent">
                     <i class="bi bi-megaphone"></i>
@@ -260,13 +253,11 @@
             </li>
             <hr class="sidebar-divider">
             @endif
-            
-            <!-- Engineers Heading -->
+
+            <!-- Developers -->
             <div class="sidebar-heading">
                 Developer
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tickets" aria-expanded="true" aria-controls="tickets">
                     <i class="bi bi-ticket"></i>
@@ -294,7 +285,6 @@
             </li>
             @endif
             <hr class="sidebar-divider d-none d-md-block">
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -411,8 +401,6 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth()->user()->fname}} {{Auth()->user()->lname}}
@@ -510,6 +498,7 @@
             </div>
         </div>
     </div>
+    <!--Leadership Modal-->
     <div class="modal fade" id="new" tabindex="-1" aria-labelledby="roleLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -564,6 +553,7 @@
             </div>
         </div>
     </div>
+    <!--Resource upload Modal-->
     <div class="modal fade" id="upload" tabindex="-1" aria-labelledby="roleLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -584,13 +574,41 @@
                             <label for="location" class="text-capitalize">Category</label>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="file" name="files[]" id="" class="form-control" multiple>
+                            <input type="file" name="files[]" id="" accept=".pdf" class="form-control" multiple>
                             <label for="">Files</label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--Report Upload Modal-->
+    <div class="modal fade" id="report" tabindex="-1" aria-labelledby="roleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="roleLabel">Upload Report</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{route('repository.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" disabled value="{{Auth()->user()->role}}">
+                            <label for="" class="text-capitalize">Department</label>
+                        </div>
+                        <div class="form-floating mb-2 p-2">
+                            <input type="file" name="file" id="" class="form-control" accept=".pdf">
+                            <label for="">Report File</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Upload File</button>
                     </div>
                 </form>
             </div>
