@@ -324,8 +324,8 @@
                                 <small>{{$leader->role}}</small>
                             </div>
                             <div class="bg-primary">
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <!-- <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a> -->
                                 <a class="btn btn-square mx-1" href="https://wa.me/{{$leader->contact}}"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
