@@ -95,7 +95,7 @@
                         </div>
                         <div class="ms-3">
                             <p class="fs-5 fw-medium mb-2 text-white">Reach Out</p>
-                            <h3 class="m-0 text-secondary">+254 723 987039</h3>
+                            <h3 class="m-0 text-warning">+254 723 987039</h3>
                         </div>
                     </div>
                 </div>
