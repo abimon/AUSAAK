@@ -111,7 +111,7 @@
     <div class="container-fluid nav-bar bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
             <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
-                <h1 class="text-warning m-0">AUSAA KENYA</h1>
+                <h1 class="text-primary m-0">AUSAA KENYA</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -133,11 +133,11 @@
                 </div>
                 <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
                     <div class="d-flex flex-shrink-0 align-items-center justify-content-between bg-light" style="width: 50px; height: 50px;">
-                        <img src="https://ausaakenya.com/storage/images/logo.png" alt="" style="width:100%;object-fit:scale-down;">
+                        <img src="{{asset('storage/images/logo.png')}}" alt="" style="width:100%;object-fit:scale-down;">
                     </div>
                     <div class="ms-3">
                         <p class="mb-1 text-white">AUSAA</p>
-                        <h5 class="m-0 text-secondary">KENYA</h5>
+                        <h5 class="m-0 text-warning">KENYA</h5>
                     </div>
                     <div class="ms-2 text-center" style="font-size:xxx-large">
                         <a href="/dashboard"><i class="bi bi-person-circle text-light"></i></a>
