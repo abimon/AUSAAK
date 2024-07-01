@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="">
-        <?php echo html_entity_decode($report->path); ?>
+        <?php echo html_entity_decode($report->details); ?>
     </div>
 
 </div>

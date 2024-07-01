@@ -35,9 +35,11 @@
             <div class="card">
                 <div class="card-body ">
                     <h5 class="card-title text-uppercase fw-bolder">{{$report->title}}</h5>
-
+                    <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
+                        {{$report->department}} Department
+                    </h6>
                     <div class="card-text">
-                        <?php echo html_entity_decode(mb_substr($report->path, 0, 300)); ?>...
+                        <?php echo html_entity_decode(mb_substr($report->details, 0, 300)); ?>...
                     </div>
                     <div class="d-flex justify-content-between">
                         <!-- <div class="d-flex justify-content-between">

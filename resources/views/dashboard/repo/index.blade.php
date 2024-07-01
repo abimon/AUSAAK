@@ -38,7 +38,7 @@
                 <div class="card-body ">
                     <h5 class="card-title text-uppercase fw-bolder">{{$file->department}}</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary text-uppercase">
-                        {{$file->year}}
+                        {{$file->department}}
                     </h6>
                     <div class="d-flex justify-content-between">
                         <a href="/storage/reports/{{$file->path}}" class="text-decoration-none text-info" download>Download</a>

@@ -4,8 +4,22 @@
     <form method="post" action="{{route('report.update',$report->id)}}" class="row">
         @csrf
         @method('PUT')
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" name="title" value="{{$report->title}}" required>
+                    <label for="">Report Title</label>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" name="department" value="{{$report->department}}" disabled>
+                    <label for="">Department</label>
+                </div>
+            </div>
+        </div>
         <div class="col-12 mb-2">
-            <textarea name="path" id="editor1" required>{{$report->path}}</textarea>
+            <textarea name="path" id="editor1" class="form-control" required>{{$report->details}}</textarea>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Update</button>
