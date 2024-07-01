@@ -316,7 +316,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{asset('storage/avatar/'.($leader->avatar))}}" alt="">
+                            <img class="img-fluid" src="{{asset('storage/avatars/'.($leader->avatar))}}" alt="">
                         </div>
                         <div class="team-text">
                             <div class="bg-light">
