@@ -4,9 +4,10 @@
     <div class="d-flex justify-content-end">
         <div class="dropdown">
             <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sort by Topic
+                Sort by Year
             </a>
             <ul class="dropdown-menu">
+            <?php $topics = array_combine(range(date("Y"), 2020), range(date("Y"), 2020)); ?>
                 @foreach ($topics as $topic)
                 <li><a class="dropdown-item" onclick="sortOut('<?php echo $topic['url']; ?>')" id="{{$topic['url']}}">{{$topic['title']}}</a></li>
                 @endforeach
