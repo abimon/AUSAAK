@@ -1,0 +1,187 @@
+A. User Endpoints
+1. Register user
+Method: POST
+Url: https://dev.ausaakenya.com/api/user/register
+Required Parameters: [email, password, f_name, l_name, contact]
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'user' => {fname,mname,lname,email,contact,current_residence,profile,gender,chapter,grad_year,password,role,inst},
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'token'
+        }
+    Status Code: 500
+        JSON: {
+            'status': false,
+            'message' 
+        }
+
+2. Login user
+Method: POST
+Url: https://dev.ausaakenya.com/api/user/login
+Required Parameters: [email, password]
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'user' => {fname,mname,lname,email,contact,current_residence,profile,gender,chapter,grad_year,password,role,inst},
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'token'
+        }
+    Status Code: 401 
+        JSON: {
+            status=>false
+            message=>"validation Error
+            errors
+        }
+    Status Code: 500
+        JSON: {
+            'status': false,
+            'message' 
+        }
+
+3. Update user
+Method: PUT
+Url: https://dev.ausaakenya.com/api/user/update/{id}
+Required Parameters: [fname/mname/lname/email/contact/current_residence/profile/gender/chapter/grad_year/password/role/inst] ::All fields are Optional. For the password remember to pass the old password as 'oldpassword' as a parameter.
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'user' => {fname,mname,lname,email,contact,current_residence,profile,gender,chapter,grad_year,password,role,inst},
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'token'
+        }
+    Status Code: 500
+        JSON: {
+            'status': false,
+            'message' 
+        }
+4. Get all users
+Method: GET
+Url: https://dev.ausaakenya.com/api/user/
+Required Parameters: [fname/mname/lname/email/contact/current_residence/profile/gender/chapter/grad_year/password/role/inst] ::All fields are Optional. For the password remember to pass the old password as 'oldpassword' as a parameter.
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'users' => {
+                user:
+                {
+                    fname,mname,lname,email,contact,current_residence,profile,gender,chapter,grad_year,password,role,inst
+                }
+            },
+            'status' => true,
+            'token'
+        }
+
+B. Transactions
+1. Get all Transactions
+Method: GET
+Url: https://dev.ausaakenya.com/api/transactions/
+Required Parameters: []
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            "status": true,
+            "contributions": [
+                {
+                    "id",
+                    "user_id",
+                    "treasurer_id",
+                    "amount",
+                    "account_id",
+                    "type",
+                    "receipt",
+                    "created_at",
+                    "updated_at"
+                }
+            ]
+        }
+
+2. Make transaction
+Method: POST
+Url: https://dev.ausaakenya.com/api/transactions/create
+Required Parameters: [account_id, amount, user_id, type, treasurer_id]
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            status=>true
+            message
+        }
+
+3. Get individual's transactions
+i. To all accounts
+Method: GET
+Url: https://dev.ausaakenya.com/api/transactions/show/{user_id}
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'user' => {fname,mname,lname,email,contact,current_residence,profile,gender,chapter,grad_year,password,role,inst},
+            'status' => true,
+            'message' => 'User Created Successfully',
+            'token'
+        }
+    Status Code: 500
+        JSON: {
+            'status': false,
+            'message' 
+        }
+
+ii. To specific accounts for all members
+Method: GET
+Url: https://dev.ausaakenya.com/api/transactions/get/{account_id}
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'transactions' => {
+                account_id,
+                amount,
+                user_id,
+                type,
+                treasurer_id,
+                receipt
+            },
+            'status' => true,
+        }
+
+iii. To specific accounts
+Method: GET
+Url: https://dev.ausaakenya.com/api/transactions/get/{user_id}/{account_id}
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            'transactions' => {
+                account_id,
+                amount,
+                user_id,
+                type,
+                treasurer_id,
+                receipt
+            },
+            'status' => true,
+        }
+
+4. Update accounts
+Method: PUT
+Url: https://dev.ausaakenya.com/api/transactions/update/{transaction_id}
+Required Parameters: [account_id, amount, user_id, type, treasurer_id]
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            status=>true
+            message
+        }
+
+5. Delete accounts
+Method: POST
+Url: https://dev.ausaakenya.com/api/transactions/delete/{transaction_id}
+Required Parameters: []
+Expected Response: 
+    Status Code: 200
+        JSON: {
+            status=>true
+            message
+        }
+
+C. Missions
